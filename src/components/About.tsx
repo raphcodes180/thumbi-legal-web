@@ -16,14 +16,14 @@ const About = () => {
 
         {/* Managing Director Section */}
         <div className="mb-16">
-          <Card className="max-w-4xl mx-auto shadow-xl border-l-4 border-l-blue-600">
+          <Card className="max-w-5xl mx-auto shadow-xl border-l-4 border-l-blue-600">
             <CardContent className="p-8">
               <div className="flex flex-col md:flex-row items-center gap-8">
                 <div className="flex-shrink-0">
                   <img 
                     src="/lovable-uploads/c92fe079-9da5-43e3-8f00-e36e00c61e6d.png" 
-                    alt="Managing Director - Anna & Co Advocates"
-                    className="w-48 h-48 rounded-lg object-cover shadow-lg"
+                    alt="Annastacia Thumbi - Managing Director, Anna & Co Advocates"
+                    className="w-64 h-64 rounded-lg object-cover shadow-lg"
                   />
                 </div>
                 <div className="flex-1 text-center md:text-left">
@@ -38,8 +38,9 @@ const About = () => {
                     </blockquote>
                   </div>
                   <div className="border-l-4 border-blue-200 pl-4">
-                    <p className="font-semibold text-slate-800 text-lg">Managing Director</p>
-                    <p className="text-blue-600 font-medium">Anna & Co Advocates</p>
+                    <p className="font-semibold text-slate-800 text-lg">Annastacia Thumbi</p>
+                    <p className="text-blue-600 font-medium">Managing Director</p>
+                    <p className="text-slate-600">Anna & Co Advocates</p>
                   </div>
                 </div>
               </div>
