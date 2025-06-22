@@ -1,44 +1,47 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Briefcase, FileText, Gavel, Users, Building, MapPin } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const Services = () => {
+  const { t } = useLanguage();
+  
   const services = [
     {
       icon: Briefcase,
-      title: "Corporate Law",
-      description: "Comprehensive business legal services including formation, governance, and compliance matters.",
-      features: ["Business Registration", "Corporate Governance", "Compliance Advisory", "Commercial Contracts"]
+      title: t('corporateLaw'),
+      description: t('corporateDescription'),
+      features: [t('businessRegistration'), t('corporateGovernance'), t('complianceAdvisory'), t('commercialContracts')]
     },
     {
       icon: FileText,
-      title: "Contract Law",
-      description: "Expert contract services from drafting to dispute resolution across all industries.",
-      features: ["Contract Drafting", "Agreement Review", "Negotiation Support", "Breach Resolution"]
+      title: t('contractLaw'),
+      description: t('contractDescription'),
+      features: [t('contractDrafting'), t('agreementReview'), t('negotiationSupport'), t('breachResolution')]
     },
     {
       icon: Gavel,
-      title: "Civil Litigation",
-      description: "Strategic litigation services with thorough preparation and skilled courtroom advocacy.",
-      features: ["Court Representation", "Case Strategy", "Settlement Negotiation", "Appeals Process"]
+      title: t('civilLitigation'),
+      description: t('litigationDescription'),
+      features: [t('courtRepresentation'), t('caseStrategy'), t('settlementNegotiation'), t('appealsProcess')]
     },
     {
       icon: Users,
-      title: "Family Law",
-      description: "Compassionate legal support for family matters with sensitivity and expertise.",
-      features: ["Divorce Proceedings", "Child Custody", "Matrimonial Property", "Family Mediation"]
+      title: t('familyLaw'),
+      description: t('familyDescription'),
+      features: [t('divorceProceedings'), t('childCustody'), t('matrimonialProperty'), t('familyMediation')]
     },
     {
       icon: MapPin,
-      title: "Land & Property Law",
-      description: "Comprehensive property legal services including transactions, disputes, and title matters.",
-      features: ["Property Transactions", "Title Verification", "Land Disputes", "Conveyancing"]
+      title: t('landPropertyLaw'),
+      description: t('propertyDescription'),
+      features: [t('propertyTransactions'), t('titleVerification'), t('landDisputes'), t('conveyancing')]
     },
     {
       icon: Building,
-      title: "County & National Legal Matters",
-      description: "Specialized representation in government and administrative legal proceedings.",
-      features: ["Administrative Law", "Government Relations", "Public Policy", "Regulatory Compliance"]
+      title: t('countyNationalLaw'),
+      description: t('governmentDescription'),
+      features: [t('administrativeLaw'), t('governmentRelations'), t('publicPolicy'), t('regulatoryCompliance')]
     }
   ];
 
@@ -46,9 +49,9 @@ const Services = () => {
     <section id="services" className="py-20 bg-gradient-to-br from-slate-50 to-blue-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-slate-900 mb-4">Legal Services</h2>
+          <h2 className="text-4xl font-bold text-slate-900 mb-4">{t('servicesTitle')}</h2>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-            Comprehensive legal representation across multiple practice areas with professional excellence and personalized attention
+            {t('servicesSubtitle')}
           </p>
         </div>
 
@@ -68,7 +71,7 @@ const Services = () => {
                   {service.description}
                 </p>
                 <div className="space-y-2">
-                  <h4 className="font-semibold text-slate-800 text-sm">Key Services:</h4>
+                  <h4 className="font-semibold text-slate-800 text-sm">{t('keyServices')}</h4>
                   <ul className="space-y-1">
                     {service.features.map((feature, idx) => (
                       <li key={idx} className="text-sm text-slate-600 flex items-start">
@@ -85,13 +88,13 @@ const Services = () => {
 
         <div className="mt-12 text-center">
           <p className="text-slate-600 mb-6">
-            Need legal assistance in a specialized area? We provide consultation across various fields of law.
+            {t('specializedConsultation')}
           </p>
           <button 
             onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
             className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-md font-medium transition-colors shadow-lg"
           >
-            Discuss Your Legal Needs
+            {t('discussLegalNeeds')}
           </button>
         </div>
       </div>

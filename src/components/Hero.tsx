@@ -1,8 +1,11 @@
 
 import { Button } from '@/components/ui/button';
 import { Shield, Scale, Award } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const Hero = () => {
+  const { t } = useLanguage();
+  
   const scrollToContact = () => {
     const element = document.getElementById('contact');
     if (element) {
@@ -41,14 +44,13 @@ const Hero = () => {
             </div>
             
             <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 drop-shadow-lg">
-              Anna & Co Advocates
+              {t('heroTitle')}
             </h1>
             <h2 className="text-2xl md:text-3xl text-blue-200 mb-8 font-semibold drop-shadow-md">
-              Professional Legal Services
+              {t('heroSubtitle')}
             </h2>
             <p className="text-xl text-gray-200 mb-10 max-w-4xl mx-auto leading-relaxed drop-shadow-sm">
-              Your trusted legal partners providing comprehensive representation across all areas of law. 
-              From corporate matters to personal legal needs, we deliver professional excellence with integrity and dedication.
+              {t('heroDescription')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
@@ -56,7 +58,7 @@ const Hero = () => {
                 size="lg"
                 className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 text-lg font-medium shadow-lg backdrop-blur-sm"
               >
-                Schedule Consultation
+                {t('scheduleConsultation')}
               </Button>
               <Button 
                 variant="outline" 
@@ -64,7 +66,7 @@ const Hero = () => {
                 onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
                 className="border-white/30 text-white hover:bg-white/10 backdrop-blur-sm px-8 py-3 text-lg font-medium"
               >
-                Learn More
+                {t('learnMore')}
               </Button>
             </div>
           </div>
