@@ -1,52 +1,64 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Briefcase, FileText, Gavel, Users } from 'lucide-react';
+import { Briefcase, FileText, Gavel, Users, Building, MapPin } from 'lucide-react';
 
 const Services = () => {
   const services = [
     {
       icon: Briefcase,
       title: "Corporate Law",
-      description: "Business formation, contracts, compliance, and corporate governance matters for businesses of all sizes.",
-      features: ["Business Registration", "Contract Drafting", "Compliance Advisory", "Corporate Restructuring"]
+      description: "Comprehensive business legal services including formation, governance, and compliance matters.",
+      features: ["Business Registration", "Corporate Governance", "Compliance Advisory", "Commercial Contracts"]
     },
     {
       icon: FileText,
       title: "Contract Law",
-      description: "Comprehensive contract services including drafting, review, negotiation, and dispute resolution.",
-      features: ["Contract Drafting", "Agreement Review", "Negotiation Support", "Dispute Resolution"]
+      description: "Expert contract services from drafting to dispute resolution across all industries.",
+      features: ["Contract Drafting", "Agreement Review", "Negotiation Support", "Breach Resolution"]
     },
     {
       icon: Gavel,
       title: "Civil Litigation",
-      description: "Professional representation in civil disputes with strategic advocacy and thorough preparation.",
-      features: ["Case Assessment", "Court Representation", "Settlement Negotiation", "Appeals"]
+      description: "Strategic litigation services with thorough preparation and skilled courtroom advocacy.",
+      features: ["Court Representation", "Case Strategy", "Settlement Negotiation", "Appeals Process"]
     },
     {
       icon: Users,
       title: "Family Law",
-      description: "Compassionate legal support for family matters with sensitivity and professional expertise.",
-      features: ["Divorce Proceedings", "Child Custody", "Property Division", "Mediation Services"]
+      description: "Compassionate legal support for family matters with sensitivity and expertise.",
+      features: ["Divorce Proceedings", "Child Custody", "Matrimonial Property", "Family Mediation"]
+    },
+    {
+      icon: MapPin,
+      title: "Land & Property Law",
+      description: "Comprehensive property legal services including transactions, disputes, and title matters.",
+      features: ["Property Transactions", "Title Verification", "Land Disputes", "Conveyancing"]
+    },
+    {
+      icon: Building,
+      title: "County & National Legal Matters",
+      description: "Specialized representation in government and administrative legal proceedings.",
+      features: ["Administrative Law", "Government Relations", "Public Policy", "Regulatory Compliance"]
     }
   ];
 
   return (
-    <section id="services" className="py-20 bg-slate-50">
+    <section id="services" className="py-20 bg-gradient-to-br from-slate-50 to-blue-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-slate-900 mb-4">Legal Services</h2>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-            Comprehensive legal representation across multiple practice areas with personalized attention to your needs
+            Comprehensive legal representation across multiple practice areas with professional excellence and personalized attention
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
-            <Card key={index} className="shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <Card key={index} className="shadow-xl hover:shadow-2xl transition-all duration-300 border-t-4 border-t-blue-600">
               <CardHeader className="pb-4">
                 <div className="flex items-center space-x-4">
-                  <div className="p-3 bg-slate-100 rounded-lg">
-                    <service.icon className="h-6 w-6 text-slate-700" />
+                  <div className="p-3 bg-blue-100 rounded-lg">
+                    <service.icon className="h-6 w-6 text-blue-600" />
                   </div>
                   <CardTitle className="text-xl text-slate-900">{service.title}</CardTitle>
                 </div>
@@ -57,10 +69,10 @@ const Services = () => {
                 </p>
                 <div className="space-y-2">
                   <h4 className="font-semibold text-slate-800 text-sm">Key Services:</h4>
-                  <ul className="grid grid-cols-1 sm:grid-cols-2 gap-1">
+                  <ul className="space-y-1">
                     {service.features.map((feature, idx) => (
                       <li key={idx} className="text-sm text-slate-600 flex items-start">
-                        <span className="text-slate-400 mr-2 text-xs">•</span>
+                        <span className="text-blue-600 mr-2 text-xs">•</span>
                         {feature}
                       </li>
                     ))}
@@ -73,11 +85,11 @@ const Services = () => {
 
         <div className="mt-12 text-center">
           <p className="text-slate-600 mb-6">
-            Don't see your specific legal need listed? I provide consultation across various areas of law.
+            Need legal assistance in a specialized area? We provide consultation across various fields of law.
           </p>
           <button 
             onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-            className="bg-slate-800 hover:bg-slate-900 text-white px-8 py-3 rounded-md font-medium transition-colors"
+            className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-md font-medium transition-colors shadow-lg"
           >
             Discuss Your Legal Needs
           </button>

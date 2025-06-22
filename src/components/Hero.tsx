@@ -1,5 +1,6 @@
 
 import { Button } from '@/components/ui/button';
+import { Shield, Scale, Award } from 'lucide-react';
 
 const Hero = () => {
   const scrollToContact = () => {
@@ -10,25 +11,39 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" className="pt-20 pb-16 bg-gradient-to-br from-slate-50 to-blue-50">
+    <section id="home" className="pt-20 pb-16 bg-gradient-to-br from-slate-50 via-blue-50 to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center py-20">
           <div className="animate-fade-in">
+            <div className="flex justify-center mb-8">
+              <div className="flex items-center space-x-6">
+                <div className="p-3 bg-blue-100 rounded-full">
+                  <Scale className="h-8 w-8 text-blue-600" />
+                </div>
+                <div className="p-3 bg-slate-100 rounded-full">
+                  <Shield className="h-8 w-8 text-slate-600" />
+                </div>
+                <div className="p-3 bg-blue-100 rounded-full">
+                  <Award className="h-8 w-8 text-blue-600" />
+                </div>
+              </div>
+            </div>
+            
             <h1 className="text-5xl md:text-6xl font-bold text-slate-900 mb-6">
-              Annastacia Muringo Thumbi
+              Anna & Co Advocates
             </h1>
-            <h2 className="text-2xl md:text-3xl text-slate-700 mb-8 font-light">
-              Legal Counsel & Advocate
+            <h2 className="text-2xl md:text-3xl text-blue-600 mb-8 font-semibold">
+              Professional Legal Services
             </h2>
-            <p className="text-xl text-slate-600 mb-10 max-w-3xl mx-auto leading-relaxed">
-              Providing dedicated legal representation with fresh perspectives and unwavering commitment to justice. 
-              Your trusted partner in navigating complex legal matters with professionalism and integrity.
+            <p className="text-xl text-slate-600 mb-10 max-w-4xl mx-auto leading-relaxed">
+              Your trusted legal partners providing comprehensive representation across all areas of law. 
+              From corporate matters to personal legal needs, we deliver professional excellence with integrity and dedication.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
                 onClick={scrollToContact}
                 size="lg"
-                className="bg-slate-800 hover:bg-slate-900 text-white px-8 py-3 text-lg font-medium"
+                className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 text-lg font-medium shadow-lg"
               >
                 Schedule Consultation
               </Button>
