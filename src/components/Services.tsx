@@ -46,36 +46,36 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" className="py-20 bg-gradient-to-br from-slate-50 to-blue-50">
+    <section id="services" className="py-20 bg-gradient-to-br from-slate-50 to-blue-50 dark:from-slate-900 dark:to-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-slate-900 mb-4">{t('servicesTitle')}</h2>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+          <h2 className="text-4xl font-bold text-slate-900 dark:text-white mb-4">{t('servicesTitle')}</h2>
+          <p className="text-xl text-slate-600 dark:text-slate-300 max-w-3xl mx-auto">
             {t('servicesSubtitle')}
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
-            <Card key={index} className="shadow-xl hover:shadow-2xl transition-all duration-300 border-t-4 border-t-blue-600">
+            <Card key={index} className="shadow-xl hover:shadow-2xl transition-all duration-300 border-t-4 border-t-blue-600 dark:bg-slate-800 dark:border-slate-700">
               <CardHeader className="pb-4">
                 <div className="flex items-center space-x-4">
-                  <div className="p-3 bg-blue-100 rounded-lg">
-                    <service.icon className="h-6 w-6 text-blue-600" />
+                  <div className="p-3 bg-blue-100 dark:bg-blue-900 rounded-lg">
+                    <service.icon className="h-6 w-6 text-blue-600 dark:text-blue-400" />
                   </div>
-                  <CardTitle className="text-xl text-slate-900">{service.title}</CardTitle>
+                  <CardTitle className="text-xl text-slate-900 dark:text-white">{service.title}</CardTitle>
                 </div>
               </CardHeader>
               <CardContent>
-                <p className="text-slate-600 mb-4 leading-relaxed">
+                <p className="text-slate-600 dark:text-slate-300 mb-4 leading-relaxed">
                   {service.description}
                 </p>
                 <div className="space-y-2">
-                  <h4 className="font-semibold text-slate-800 text-sm">{t('keyServices')}</h4>
+                  <h4 className="font-semibold text-slate-800 dark:text-slate-200 text-sm">{t('keyServices')}</h4>
                   <ul className="space-y-1">
                     {service.features.map((feature, idx) => (
-                      <li key={idx} className="text-sm text-slate-600 flex items-start">
-                        <span className="text-blue-600 mr-2 text-xs">•</span>
+                      <li key={idx} className="text-sm text-slate-600 dark:text-slate-400 flex items-start">
+                        <span className="text-blue-600 dark:text-blue-400 mr-2 text-xs">•</span>
                         {feature}
                       </li>
                     ))}
@@ -87,7 +87,7 @@ const Services = () => {
         </div>
 
         <div className="mt-12 text-center">
-          <p className="text-slate-600 mb-6">
+          <p className="text-slate-600 dark:text-slate-300 mb-6">
             {t('specializedConsultation')}
           </p>
           <button 

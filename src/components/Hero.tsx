@@ -16,18 +16,22 @@ const Hero = () => {
   return (
     <section 
       id="home" 
-      className="pt-20 pb-16 bg-gradient-to-br from-slate-900/90 via-blue-900/80 to-slate-800/90 relative overflow-hidden min-h-screen"
-      style={{
-        backgroundImage: 'url("https://images.unsplash.com/photo-1578662996442-48f60103fc96?q=80&w=2070&auto=format&fit=crop")',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-        backgroundAttachment: 'fixed'
-      }}
+      className="relative pt-20 pb-16 min-h-screen overflow-hidden"
     >
+      {/* Background Image */}
+      <div 
+        className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: 'url("https://images.unsplash.com/photo-1578662996442-48f60103fc96?q=80&w=2070&auto=format&fit=crop")',
+        }}
+      />
+      
+      {/* Dark Overlay */}
       <div className="absolute inset-0 bg-gradient-to-r from-slate-900/95 via-blue-900/85 to-slate-800/90"></div>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center py-20">
+      
+      {/* Content */}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
+        <div className="text-center py-20 flex flex-col justify-center min-h-[calc(100vh-5rem)]">
           <div className="animate-fade-in">
             <div className="flex justify-center mb-8">
               <div className="flex items-center space-x-6">
@@ -64,7 +68,7 @@ const Hero = () => {
                 variant="outline" 
                 size="lg"
                 onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
-                className="border-white/30 text-white hover:bg-white/10 backdrop-blur-sm px-8 py-3 text-lg font-medium"
+                className="border-2 border-white text-white hover:bg-white hover:text-slate-900 backdrop-blur-sm px-8 py-3 text-lg font-medium bg-white/10"
               >
                 {t('learnMore')}
               </Button>

@@ -42,9 +42,9 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-semibold mb-4">{t('officeHours')}</h4>
             <div className="text-slate-300 space-y-2">
-              <p>{t('mondayFriday')}</p>
-              <p>{t('saturday')}</p>
-              <p>{t('sunday')}</p>
+              <p>{t('mondayFriday')}: 8:00 AM - 6:00 PM</p>
+              <p>{t('saturday')}: 9:00 AM - 2:00 PM</p>
+              <p>{t('sunday')}: Closed</p>
             </div>
           </div>
         </div>
