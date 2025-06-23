@@ -1,6 +1,5 @@
-
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Briefcase, FileText, Gavel, Users, Building, MapPin } from 'lucide-react';
+import { Briefcase, FileText, Gavel, Users, Building, MapPin, Shield, Scale, Award } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 
 const Services = () => {

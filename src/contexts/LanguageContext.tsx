@@ -1,8 +1,13 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
+type Theme = 'light' | 'dark' | 'system';
+
 interface LanguageContextProps {
   language: string;
+  currentLanguage: string;
   setLanguage: (language: string) => void;
+  theme: Theme;
+  setTheme: (theme: Theme) => void;
   t: (key: string) => string;
 }
 
@@ -19,6 +24,7 @@ const translations = {
     about: 'About',
     services: 'Services',
     contact: 'Contact',
+    languages: 'Languages',
     
     // Hero Section
     heroTitle: 'Anna & Co Advocates',
@@ -29,18 +35,32 @@ const translations = {
     
     // About Section  
     aboutTitle: 'About Anna & Co Advocates',
-    aboutDescription: 'With over a decade of experience in Kenyan law, Anna & Co Advocates has established itself as a leading legal firm committed to delivering exceptional results for our clients.',
-    ourMission: 'Our Mission',
-    missionText: 'To provide accessible, professional, and results-driven legal services that protect our clients\' interests and uphold the principles of justice.',
-    ourVision: 'Our Vision',
-    visionText: 'To be the most trusted legal advisory firm in Kenya, known for our expertise, integrity, and commitment to client success.',
-    whyChooseUs: 'Why Choose Us',
-    expertLawyers: 'Expert Lawyers',
-    expertDescription: 'Our team consists of highly qualified advocates with extensive experience.',
-    provenTrack: 'Proven Track Record',
-    trackDescription: 'Successful representation in hundreds of cases across various practice areas.',
-    clientFocused: 'Client-Focused Approach',
-    clientDescription: 'We prioritize our clients\' needs and provide personalized legal solutions.',
+    aboutSubtitle: 'With over a decade of experience in Kenyan law, Anna & Co Advocates has established itself as a leading legal firm committed to delivering exceptional results for our clients.',
+    excellenceTitle: 'Excellence in Legal Practice',
+    excellenceDescription1: 'At Anna & Co Advocates, we understand that every legal matter is unique and requires personalized attention. Our approach combines deep legal expertise with innovative solutions to achieve the best possible outcomes for our clients.',
+    excellenceDescription2: 'We pride ourselves on building lasting relationships with our clients, based on trust, transparency, and exceptional service delivery. Our team is dedicated to protecting your interests while providing strategic legal guidance.',
+    foundationTitle: 'Our Foundation',
+    professionalExcellence: 'Professional Excellence',
+    integrity: 'Integrity',
+    clientFocus: 'Client Focus',
+    innovation: 'Innovation',
+    resultsDriven: 'Results Driven',
+    credentialsTitle: 'Professional Credentials',
+    llbDegree: 'LLB Degree',
+    legalEducation: 'Bachelor of Laws from University of Nairobi',
+    graduated: 'Graduated with Honors',
+    admittedBar: 'Admitted to the Bar',
+    licensedPractitioner: 'Licensed Legal Practitioner',
+    kenyaSchoolLaw: 'Kenya School of Law Graduate',
+    verification: 'Verification',
+    verifyCredentials: 'Verify Credentials at KSL',
+    approachTitle: 'Our Approach',
+    approach1: 'Client-centered legal solutions',
+    approach2: 'Strategic case analysis and planning',
+    approach3: 'Transparent communication throughout',
+    approach4: 'Results-oriented representation',
+    managingDirector: 'Managing Director',
+    managingDirectorQuote: 'Justice is not just about the law; it\'s about ensuring every client receives fair, competent, and dedicated representation that protects their rights and interests.',
     
     // Services Section
     servicesTitle: 'Our Legal Services',
@@ -125,8 +145,9 @@ const translations = {
     
     // Accessibility
     accessibility: 'Accessibility',
+    lightMode: 'Light Mode',
     darkMode: 'Dark Mode',
-    language: 'Language'
+    systemMode: 'System Mode'
   },
   sw: {
     // Navigation
@@ -134,6 +155,7 @@ const translations = {
     about: 'Kuhusu',
     services: 'Huduma',
     contact: 'Wasiliana',
+    languages: 'Lugha',
     
     // Hero Section
     heroTitle: 'Anna & Co Advocates',
@@ -144,18 +166,32 @@ const translations = {
     
     // About Section
     aboutTitle: 'Kuhusu Anna & Co Advocates',
-    aboutDescription: 'Kwa zaidi ya muongo mmoja wa tajriba katika sheria za Kenya, Anna & Co Advocates imejiimarisha kama kampuni ya kisheria inayoongoza inayojitoa kutoa matokeo ya kipekee kwa wateja wetu.',
-    ourMission: 'Utume Wetu',
-    missionText: 'Kutoa huduma za kisheria zinazofikiwa, za kitaaluma, na zinazolenga matokeo ambazi yanaunga mkono maslahi ya wateja wetu na kuunga mkono misingi ya haki.',
-    ourVision: 'Maono Yetu',
-    visionText: 'Kuwa kampuni ya ushauri wa kisheria inayoaminika zaidi nchini Kenya, inayojulikana kwa utaalamu wetu, uwazi, na kujitolea kwa mafanikio ya wateja.',
-    whyChooseUs: 'Kwa Nini Utuchague',
-    expertLawyers: 'Wanasheria Wataalam',
-    expertDescription: 'Timu yetu ina mawakili wenye sifa za juu na tajriba kubwa.',
-    provenTrack: 'Rekodi Iliyothibitishwa',
-    trackDescription: 'Uwakilishi wa mafanikio katika mamia ya kesi katika maeneo mbalimbali ya utendaji.',
-    clientFocused: 'Mbinu Inayolenga Mteja',
-    clientDescription: 'Tunaweka kipaumbele mahitaji ya wateja wetu na kutoa suluhisho za kisheria za kibinafsi.',
+    aboutSubtitle: 'Kwa zaidi ya muongo mmoja wa tajriba katika sheria za Kenya, Anna & Co Advocates imejiimarisha kama kampuni ya kisheria inayoongoza inayojitoa kutoa matokeo ya kipekee kwa wateja wetu.',
+    excellenceTitle: 'Ubora katika Utendaji wa Kisheria',
+    excellenceDescription1: 'Katika Anna & Co Advocates, tunaelewa kwamba kila suala la kisheria ni la kipekee na linahitaji umakini wa kibinafsi. Mbinu yetu inachanganya utaalamu wa kina wa kisheria na suluhisho za ubunifu kufikia matokeo bora zaidi kwa wateja wetu.',
+    excellenceDescription2: 'Tunajivunia kujenga mahusiano na wateja wetu, kulingana na imani, uwazi, na utoaji wa huduma ya kipekee. Timu yetu imejitolea kulinda maslahi yako wakati ikitoa mwongozo wa kimkakati wa kisheria.',
+    foundationTitle: 'Msingi Wetu',
+    professionalExcellence: 'Ubora wa Kitaaluma',
+    integrity: 'Uongozi',
+    clientFocus: 'Kuelekezwa kwa Mteja',
+    innovation: 'Ubunifu',
+    resultsDriven: 'Kuelekezwa na Matokeo',
+    credentialsTitle: 'Vyeti vya Kitaaluma',
+    llbDegree: 'Shahada ya LLB',
+    legalEducation: 'Shahada ya Kwanza ya Sheria kutoka Chuo Kikuu cha Nairobi',
+    graduated: 'Alihitimu kwa Heshima',
+    admittedBar: 'Amekubaliwa kwa Bar',
+    licensedPractitioner: 'Muumaji wa Kisheria Aliyeidhinishwa',
+    kenyaSchoolLaw: 'Mhitimu wa Shule ya Sheria ya Kenya',
+    verification: 'Uthibitisho',
+    verifyCredentials: 'Thibitisha Vyeti katika KSL',
+    approachTitle: 'Mbinu Yetu',
+    approach1: 'Suluhisho za kisheria zinazoelekezwa kwa mteja',
+    approach2: 'Uchambuzi wa kimkakati wa kesi na upangaji',
+    approach3: 'Mawasiliano ya uwazi katika mchakato wote',
+    approach4: 'Uwakilishi unaolenga matokeo',
+    managingDirector: 'Mkurugenzi Mtendaji',
+    managingDirectorQuote: 'Haki si kuhusu sheria tu; ni kuhusu kuhakikisha kila mteja anapokea uwakilishi wa haki, wa uwezo, na wa kujitolea unaolinda haki na maslahi yao.',
     
     // Services Section
     servicesTitle: 'Huduma Zetu za Kisheria',
@@ -240,13 +276,21 @@ const translations = {
     
     // Accessibility
     accessibility: 'Upatikanaji',
+    lightMode: 'Hali ya Mwanga',
     darkMode: 'Hali ya Giza',
-    language: 'Lugha'
+    systemMode: 'Hali ya Mfumo'
   }
 };
 
 export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) => {
   const [language, setLanguage] = useState(typeof window !== 'undefined' ? localStorage.getItem('language') || 'en' : 'en');
+  const [theme, setTheme] = useState<Theme>(() => {
+    if (typeof window !== 'undefined') {
+      const savedTheme = localStorage.getItem('theme') as Theme;
+      return savedTheme || 'system';
+    }
+    return 'system';
+  });
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -254,12 +298,35 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
     }
   }, [language]);
 
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('theme', theme);
+      
+      const root = window.document.documentElement;
+      root.classList.remove('light', 'dark');
+      
+      if (theme === 'system') {
+        const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        root.classList.add(systemTheme);
+      } else {
+        root.classList.add(theme);
+      }
+    }
+  }, [theme]);
+
   const t = (key: string): string => {
     return translations[language as keyof typeof translations][key] || key;
   };
 
   return (
-    <LanguageContext.Provider value={{ language, setLanguage, t }}>
+    <LanguageContext.Provider value={{ 
+      language, 
+      currentLanguage: language,
+      setLanguage, 
+      theme,
+      setTheme,
+      t 
+    }}>
       {children}
     </LanguageContext.Provider>
   );
