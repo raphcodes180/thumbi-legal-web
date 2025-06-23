@@ -16,13 +16,13 @@ const Hero = () => {
   return (
     <section 
       id="home" 
-      className="pt-20 pb-16 bg-gradient-to-br from-slate-900/90 via-blue-900/80 to-slate-800/90 relative overflow-hidden"
+      className="pt-20 pb-16 bg-gradient-to-br from-slate-900/90 via-blue-900/80 to-slate-800/90 relative overflow-hidden min-h-screen"
       style={{
-        backgroundImage: 'url("https://images.unsplash.com/photo-1578662996442-48f60103fc96?q=80&w=2070&auto=format&fit=crop"), url("https://images.unsplash.com/photo-1466721591366-2d5fba72006d?q=80&w=2221&auto=format&fit=crop")',
-        backgroundSize: 'cover, 30%',
-        backgroundPosition: 'center, right bottom',
-        backgroundRepeat: 'no-repeat, no-repeat',
-        backgroundBlendMode: 'overlay, soft-light'
+        backgroundImage: 'url("https://images.unsplash.com/photo-1578662996442-48f60103fc96?q=80&w=2070&auto=format&fit=crop")',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        backgroundAttachment: 'fixed'
       }}
     >
       <div className="absolute inset-0 bg-gradient-to-r from-slate-900/95 via-blue-900/85 to-slate-800/90"></div>
