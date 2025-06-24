@@ -2,7 +2,6 @@
 import { Button } from '@/components/ui/button';
 import { Shield, Scale, Award } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
-import Matrix3D from './Matrix3D';
 
 const Hero = () => {
   const { t } = useLanguage();
@@ -29,9 +28,6 @@ const Hero = () => {
       
       {/* Dark Overlay */}
       <div className="absolute inset-0 bg-gradient-to-r from-slate-900/95 via-blue-900/85 to-slate-800/90"></div>
-      
-      {/* 3D Matrix Background - Slow and readable */}
-      <Matrix3D speed={0.2} opacity={0.15} />
       
       {/* Lioness Image - Positioned as design element */}
       <div className="absolute right-4 md:right-12 top-1/2 transform -translate-y-1/2 opacity-20 md:opacity-30">

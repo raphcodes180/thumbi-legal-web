@@ -25,8 +25,8 @@ const Matrix3D = ({ speed = 1, opacity = 0.3 }: Matrix3DProps) => {
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
 
-    // Matrix animation variables
-    const chars = 'JUSTICE•LAW•ADVOCACY•LEGAL•ETHICS•RIGHTS';
+    // Matrix animation variables with legal terms and company values
+    const chars = 'ANNA&CO•ADVOCATES•JUSTICE•LAW•INTEGRITY•HONESTY•SECRECY•LEGAL•ETHICS•RIGHTS•ADVOCACY•CONFIDENTIALITY•TRUST•EXCELLENCE•PROFESSIONALISM•DEDICATION';
     const fontSize = 14;
     const columns = Math.floor(canvas.width / fontSize);
     const drops: number[] = [];
@@ -44,7 +44,7 @@ const Matrix3D = ({ speed = 1, opacity = 0.3 }: Matrix3DProps) => {
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       // Set text properties
-      ctx.fillStyle = '#3b82f6';
+      ctx.fillStyle = '#1e40af';
       ctx.font = `${fontSize}px monospace`;
 
       // Draw characters
@@ -53,7 +53,9 @@ const Matrix3D = ({ speed = 1, opacity = 0.3 }: Matrix3DProps) => {
         const x = i * fontSize;
         const y = drops[i];
 
-        ctx.fillStyle = `rgba(59, 130, 246, ${Math.random() * 0.5 + 0.1})`;
+        // Vary the opacity and color for visual interest
+        const alpha = Math.random() * 0.8 + 0.2;
+        ctx.fillStyle = `rgba(30, 64, 175, ${alpha})`;
         ctx.fillText(char, x, y);
 
         // Reset drop to top when it reaches bottom
