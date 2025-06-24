@@ -23,10 +23,14 @@ const Header = () => {
     setIsMenuOpen(false);
   };
 
-  // Only include languages that have translations available
+  // Fixed language options - these labels never change
   const languageOptions = [
     { value: 'en', label: 'English' },
     { value: 'sw', label: 'Kiswahili' },
+    { value: 'fr', label: 'Français' },
+    { value: 'es', label: 'Español' },
+    { value: 'zh', label: '中文' },
+    { value: 'de', label: 'Deutsch' },
   ];
 
   return (
@@ -70,7 +74,7 @@ const Header = () => {
             {/* Language Selector */}
             <div className="flex items-center gap-2">
               <Languages className="h-4 w-4 text-slate-600 dark:text-slate-400" />
-              <Select value={currentLanguage} onValueChange={(value) => setLanguage(value)}>
+              <Select value={currentLanguage} onValueChange={(value) => setLanguage(value as any)}>
                 <SelectTrigger className="w-[140px] h-8 text-sm">
                   <SelectValue />
                 </SelectTrigger>
@@ -135,7 +139,7 @@ const Header = () => {
                   <Languages className="h-4 w-4 text-slate-600 dark:text-slate-400" />
                   <span className="text-slate-700 font-medium dark:text-slate-300">{t('languages')}</span>
                 </div>
-                <Select value={currentLanguage} onValueChange={(value) => setLanguage(value)}>
+                <Select value={currentLanguage} onValueChange={(value) => setLanguage(value as any)}>
                   <SelectTrigger className="w-full">
                     <SelectValue />
                   </SelectTrigger>
