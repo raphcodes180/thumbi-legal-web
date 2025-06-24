@@ -1,7 +1,12 @@
 
 import { useEffect, useRef } from 'react';
 
-const Matrix3D = () => {
+interface Matrix3DProps {
+  speed?: number;
+  opacity?: number;
+}
+
+const Matrix3D = ({ speed = 1, opacity = 0.3 }: Matrix3DProps) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
@@ -56,8 +61,8 @@ const Matrix3D = () => {
           drops[i] = 0;
         }
 
-        // Move drop down
-        drops[i] += fontSize * 0.5;
+        // Move drop down (speed controlled by prop)
+        drops[i] += fontSize * 0.5 * speed;
       }
 
       animationId = requestAnimationFrame(draw);
@@ -69,13 +74,16 @@ const Matrix3D = () => {
       window.removeEventListener('resize', resizeCanvas);
       cancelAnimationFrame(animationId);
     };
-  }, []);
+  }, [speed]);
 
   return (
     <canvas
       ref={canvasRef}
-      className="absolute inset-0 w-full h-full pointer-events-none opacity-30"
-      style={{ mixBlendMode: 'multiply' }}
+      className="absolute inset-0 w-full h-full pointer-events-none"
+      style={{ 
+        mixBlendMode: 'multiply',
+        opacity: opacity
+      }}
     />
   );
 };

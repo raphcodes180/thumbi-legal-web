@@ -48,8 +48,8 @@ const Services = () => {
 
   return (
     <section id="services" className="relative py-12 md:py-20 bg-gradient-to-br from-slate-50 to-blue-50 dark:from-slate-900 dark:to-slate-800 overflow-hidden">
-      {/* 3D Matrix Background - Functional design element */}
-      <Matrix3D />
+      {/* 3D Matrix Background - Regular speed */}
+      <Matrix3D speed={1} opacity={0.3} />
       
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12 md:mb-16">
