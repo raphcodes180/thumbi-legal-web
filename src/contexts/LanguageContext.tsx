@@ -1,3 +1,4 @@
+
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
 type Theme = 'light' | 'dark' | 'system';
@@ -315,7 +316,13 @@ export const LanguageProvider: React.FC<LanguageProviderProps> = ({ children }) 
   }, [theme]);
 
   const t = (key: string): string => {
-    return translations[language as keyof typeof translations][key] || key;
+    // Add fallback to prevent crashes when translation is missing
+    const languageTranslations = translations[language as keyof typeof translations];
+    if (!languageTranslations) {
+      // Fallback to English if language not found
+      return translations.en[key as keyof typeof translations.en] || key;
+    }
+    return languageTranslations[key as keyof typeof languageTranslations] || key;
   };
 
   return (
