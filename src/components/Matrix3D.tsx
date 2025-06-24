@@ -27,7 +27,7 @@ const Matrix3D = ({ speed = 1, opacity = 0.3 }: Matrix3DProps) => {
 
     // Matrix animation variables with legal terms and company values
     const chars = 'ANNA&CO•ADVOCATES•JUSTICE•LAW•INTEGRITY•HONESTY•SECRECY•LEGAL•ETHICS•RIGHTS•ADVOCACY•CONFIDENTIALITY•TRUST•EXCELLENCE•PROFESSIONALISM•DEDICATION';
-    const fontSize = 14;
+    const fontSize = 18; // Increased from 14 to 18 for better visibility
     const columns = Math.floor(canvas.width / fontSize);
     const drops: number[] = [];
 
