@@ -43,7 +43,7 @@ const Matrix3D = ({ speed = 1, opacity = 0.3 }: Matrix3DProps) => {
 
     let animationId: number;
     let lastTime = 0;
-    const frameDelay = 150 / speed; // Much slower animation - 150ms base delay
+    const frameDelay = 80 / speed; // Faster animation - reduced from 150ms to 80ms
 
     const draw = (currentTime: number) => {
       if (currentTime - lastTime < frameDelay) {
@@ -56,9 +56,11 @@ const Matrix3D = ({ speed = 1, opacity = 0.3 }: Matrix3DProps) => {
       ctx.fillStyle = 'rgba(248, 250, 252, 0.08)';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      // Set text properties
+      // Set text properties - clean text without shadows
       ctx.font = `${fontSize}px monospace`;
       ctx.textAlign = 'left';
+      ctx.shadowBlur = 0; // Remove any blur/shadow effects
+      ctx.shadowColor = 'transparent';
 
       // Draw words
       for (let i = 0; i < drops.length; i++) {
@@ -66,7 +68,7 @@ const Matrix3D = ({ speed = 1, opacity = 0.3 }: Matrix3DProps) => {
         const x = i * (fontSize * 3);
         const y = drop.y;
 
-        // Vary the opacity and color for visual interest
+        // Clean color without shadows
         ctx.fillStyle = `rgba(30, 64, 175, ${drop.alpha})`;
         ctx.fillText(drop.word, x, y);
 
@@ -79,8 +81,8 @@ const Matrix3D = ({ speed = 1, opacity = 0.3 }: Matrix3DProps) => {
           };
         }
 
-        // Move drop down very slowly
-        drops[i].y += lineHeight * 0.2 * speed;
+        // Move drop down faster
+        drops[i].y += lineHeight * 0.4 * speed; // Increased from 0.2 to 0.4
       }
 
       animationId = requestAnimationFrame(draw);
