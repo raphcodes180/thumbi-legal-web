@@ -25,6 +25,17 @@ const Matrix3D = ({ speed = 1, opacity = 0.3 }: Matrix3DProps) => {
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
 
+    // Get computed styles to detect theme
+    const getThemeColors = () => {
+      const rootStyles = getComputedStyle(document.documentElement);
+      const isDark = document.documentElement.classList.contains('dark');
+      
+      return {
+        background: isDark ? 'rgba(15, 23, 42, 0.08)' : 'rgba(248, 250, 252, 0.08)',
+        text: isDark ? 'rgba(148, 163, 184, 0.8)' : 'rgba(30, 64, 175, 0.8)'
+      };
+    };
+
     // Matrix animation variables with legal terms and company values as complete words
     const words = ['ANNA&CO', 'ADVOCATES', 'JUSTICE', 'LAW', 'INTEGRITY', 'HONESTY', 'SECRECY', 'LEGAL', 'ETHICS', 'RIGHTS', 'ADVOCACY', 'CONFIDENTIALITY', 'TRUST', 'EXCELLENCE', 'PROFESSIONALISM', 'DEDICATION', 'COUNSEL', 'LITIGATION', 'CONTRACT', 'PROPERTY', 'FAMILY', 'CORPORATE'];
     const fontSize = 16;
@@ -52,8 +63,10 @@ const Matrix3D = ({ speed = 1, opacity = 0.3 }: Matrix3DProps) => {
       }
       lastTime = currentTime;
 
+      const colors = getThemeColors();
+
       // Semi-transparent background for trail effect
-      ctx.fillStyle = 'rgba(248, 250, 252, 0.08)';
+      ctx.fillStyle = colors.background;
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       // Set text properties - clean text without shadows
@@ -68,8 +81,15 @@ const Matrix3D = ({ speed = 1, opacity = 0.3 }: Matrix3DProps) => {
         const x = i * (fontSize * 3);
         const y = drop.y;
 
-        // Clean color without shadows
-        ctx.fillStyle = `rgba(30, 64, 175, ${drop.alpha})`;
+        // Clean color without shadows - theme aware
+        const baseColor = colors.text;
+        const rgbaMatch = baseColor.match(/rgba?\(([^)]+)\)/);
+        if (rgbaMatch) {
+          const [r, g, b] = rgbaMatch[1].split(',').map(n => parseFloat(n.trim()));
+          ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${drop.alpha})`;
+        } else {
+          ctx.fillStyle = baseColor;
+        }
         ctx.fillText(drop.word, x, y);
 
         // Reset drop to top when it reaches bottom

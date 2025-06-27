@@ -9,21 +9,21 @@ const About = () => {
   const { t } = useLanguage();
   
   return (
-    <section id="about" className="relative py-20 bg-gradient-to-br from-blue-50 to-slate-100 overflow-hidden">
+    <section id="about" className="relative py-20 bg-gradient-to-br from-background to-secondary overflow-hidden">
       {/* 3D Matrix Background with legal terms and company values */}
       <Matrix3D speed={0.3} opacity={0.12} />
       
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-slate-900 mb-4">{t('aboutTitle')}</h2>
-          <p className="text-xl text-slate-700 max-w-3xl mx-auto">
+          <h2 className="text-4xl font-bold text-foreground mb-4">{t('aboutTitle')}</h2>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             {t('aboutSubtitle')}
           </p>
         </div>
 
         {/* Managing Director Section */}
         <div className="mb-16">
-          <Card className="max-w-5xl mx-auto shadow-xl border-l-4 border-l-blue-700 bg-white/90 backdrop-blur-sm">
+          <Card className="max-w-5xl mx-auto shadow-xl border-l-4 border-l-primary bg-card/90 backdrop-blur-sm">
             <CardContent className="p-8">
               <div className="flex flex-col md:flex-row items-center gap-8">
                 <div className="flex-shrink-0">
@@ -35,15 +35,15 @@ const About = () => {
                 </div>
                 <div className="flex-1 text-center md:text-left">
                   <div className="flex items-start gap-3 mb-4">
-                    <Quote className="h-6 w-6 text-blue-700 flex-shrink-0 mt-1" />
-                    <blockquote className="text-lg text-slate-800 leading-relaxed italic">
+                    <Quote className="h-6 w-6 text-primary flex-shrink-0 mt-1" />
+                    <blockquote className="text-lg text-foreground leading-relaxed italic">
                       "{t('managingDirectorQuote')}"
                     </blockquote>
                   </div>
-                  <div className="border-l-4 border-blue-300 pl-4">
-                    <p className="font-semibold text-slate-900 text-lg">Annastacia Thumbi</p>
-                    <p className="text-blue-700 font-medium">{t('managingDirector')}</p>
-                    <p className="text-slate-700">Anna & Co Advocates</p>
+                  <div className="border-l-4 border-primary/30 pl-4">
+                    <p className="font-semibold text-foreground text-lg">Annastacia Thumbi</p>
+                    <p className="text-primary font-medium">{t('managingDirector')}</p>
+                    <p className="text-muted-foreground">Anna & Co Advocates</p>
                   </div>
                 </div>
               </div>
@@ -53,53 +53,53 @@ const About = () => {
 
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
-            <h3 className="text-2xl font-semibold text-slate-900 mb-4">
+            <h3 className="text-2xl font-semibold text-foreground mb-4">
               {t('excellenceTitle')}
             </h3>
-            <p className="text-lg text-slate-800 leading-relaxed">
+            <p className="text-lg text-foreground leading-relaxed">
               {t('excellenceDescription1')}
             </p>
-            <p className="text-lg text-slate-800 leading-relaxed">
+            <p className="text-lg text-foreground leading-relaxed">
               {t('excellenceDescription2')}
             </p>
             
             <div className="space-y-4">
-              <h4 className="text-xl font-semibold text-slate-900">{t('foundationTitle')}</h4>
+              <h4 className="text-xl font-semibold text-foreground">{t('foundationTitle')}</h4>
               <div className="flex flex-wrap gap-2">
-                <Badge variant="secondary" className="px-3 py-1 bg-blue-200 text-blue-900">{t('professionalExcellence')}</Badge>
-                <Badge variant="secondary" className="px-3 py-1 bg-blue-200 text-blue-900">{t('integrity')}</Badge>
-                <Badge variant="secondary" className="px-3 py-1 bg-blue-200 text-blue-900">{t('clientFocus')}</Badge>
-                <Badge variant="secondary" className="px-3 py-1 bg-blue-200 text-blue-900">{t('innovation')}</Badge>
-                <Badge variant="secondary" className="px-3 py-1 bg-blue-200 text-blue-900">{t('resultsDriven')}</Badge>
+                <Badge variant="secondary" className="px-3 py-1">{t('professionalExcellence')}</Badge>
+                <Badge variant="secondary" className="px-3 py-1">{t('integrity')}</Badge>
+                <Badge variant="secondary" className="px-3 py-1">{t('clientFocus')}</Badge>
+                <Badge variant="secondary" className="px-3 py-1">{t('innovation')}</Badge>
+                <Badge variant="secondary" className="px-3 py-1">{t('resultsDriven')}</Badge>
               </div>
             </div>
           </div>
 
           <div className="space-y-6">
-            <Card className="p-6 shadow-xl border-l-4 border-l-blue-700 bg-white/90 backdrop-blur-sm">
+            <Card className="p-6 shadow-xl border-l-4 border-l-primary bg-card/90 backdrop-blur-sm">
               <CardContent className="p-0">
-                <h4 className="text-xl font-semibold text-slate-900 mb-4">{t('credentialsTitle')}</h4>
+                <h4 className="text-xl font-semibold text-foreground mb-4">{t('credentialsTitle')}</h4>
                 <div className="space-y-4">
-                  <div className="border-l-4 border-slate-300 pl-4">
-                    <h5 className="font-semibold text-slate-900">{t('llbDegree')}</h5>
-                    <p className="text-slate-700">{t('legalEducation')}</p>
-                    <p className="text-sm text-slate-600">{t('graduated')}</p>
+                  <div className="border-l-4 border-muted pl-4">
+                    <h5 className="font-semibold text-foreground">{t('llbDegree')}</h5>
+                    <p className="text-muted-foreground">{t('legalEducation')}</p>
+                    <p className="text-sm text-muted-foreground">{t('graduated')}</p>
                   </div>
-                  <div className="border-l-4 border-slate-300 pl-4">
-                    <h5 className="font-semibold text-slate-900">{t('admittedBar')}</h5>
-                    <p className="text-slate-700">{t('licensedPractitioner')}</p>
-                    <p className="text-sm text-slate-600">{t('kenyaSchoolLaw')}</p>
+                  <div className="border-l-4 border-muted pl-4">
+                    <h5 className="font-semibold text-foreground">{t('admittedBar')}</h5>
+                    <p className="text-muted-foreground">{t('licensedPractitioner')}</p>
+                    <p className="text-sm text-muted-foreground">{t('kenyaSchoolLaw')}</p>
                   </div>
-                  <div className="border-l-4 border-blue-300 pl-4">
-                    <h5 className="font-semibold text-slate-900 flex items-center gap-2">
+                  <div className="border-l-4 border-primary/30 pl-4">
+                    <h5 className="font-semibold text-foreground flex items-center gap-2">
                       {t('verification')}
-                      <ExternalLink className="h-4 w-4 text-blue-700" />
+                      <ExternalLink className="h-4 w-4 text-primary" />
                     </h5>
                     <a 
                       href="https://ksl.ac.ke/verification" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="text-blue-700 hover:text-blue-900 underline"
+                      className="text-primary hover:text-primary/80 underline"
                     >
                       {t('verifyCredentials')}
                     </a>
@@ -108,24 +108,24 @@ const About = () => {
               </CardContent>
             </Card>
 
-            <Card className="p-6 shadow-xl bg-white/90 backdrop-blur-sm">
+            <Card className="p-6 shadow-xl bg-card/90 backdrop-blur-sm">
               <CardContent className="p-0">
-                <h4 className="text-xl font-semibold text-slate-900 mb-4">{t('approachTitle')}</h4>
-                <ul className="space-y-2 text-slate-800">
+                <h4 className="text-xl font-semibold text-foreground mb-4">{t('approachTitle')}</h4>
+                <ul className="space-y-2 text-foreground">
                   <li className="flex items-start">
-                    <span className="text-blue-700 mr-2">•</span>
+                    <span className="text-primary mr-2">•</span>
                     {t('approach1')}
                   </li>
                   <li className="flex items-start">
-                    <span className="text-blue-700 mr-2">•</span>
+                    <span className="text-primary mr-2">•</span>
                     {t('approach2')}
                   </li>
                   <li className="flex items-start">
-                    <span className="text-blue-700 mr-2">•</span>
+                    <span className="text-primary mr-2">•</span>
                     {t('approach3')}
                   </li>
                   <li className="flex items-start">
-                    <span className="text-blue-700 mr-2">•</span>
+                    <span className="text-primary mr-2">•</span>
                     {t('approach4')}
                   </li>
                 </ul>
